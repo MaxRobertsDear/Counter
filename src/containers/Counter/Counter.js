@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import CounterControl from '../../components/CounterControl/CounterControl';
 import CounterOutput from '../../components/CounterOutput/CounterOutput';
 
-class Counter extends Component {
+const counter = (props) => {
   // state = {
   //     counter: 0
   // }
@@ -26,18 +26,18 @@ class Counter extends Component {
   //   }
   // }
 
-  render () {
+  // render () {
     return (
       <div>
-          <CounterOutput value={this.props.ctr} />
-          <CounterControl label="Increment" clicked={this.props.onIncrementCounter} />
-          <CounterControl label="Decrement" clicked={this.props.onDecrementCounter}  />
-          <CounterControl label="Add 5" clicked={this.props.onAddCounter}  />
-          <CounterControl label="Subtract 5" clicked={this.props.onSubCounter}  />
+          <CounterOutput value={props.ctr} />
+          <CounterControl label="Increment" clicked={props.onIncrementCounter} />
+          <CounterControl label="Decrement" clicked={props.onDecrementCounter}  />
+          <CounterControl label="Add 5" clicked={props.onAddCounter}  />
+          <CounterControl label="Subtract 5" clicked={props.onSubCounter}  />
       </div>
     );
   }
-}
+// }
 
 const mapStateToProps = (state) => {
   return {
@@ -55,4 +55,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+export default connect(mapStateToProps, mapDispatchToProps)(counter);
