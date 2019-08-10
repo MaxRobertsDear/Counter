@@ -38,7 +38,7 @@ const counter = (props) => {
           <button onClick={props.onStoreResult}>Store Result</button>
           <ul>
             {props.storedResults.map(strResult => (
-            <li onClick={props.onDeleteResult}>{strResult}</li>
+            <li onClick={props.onDeleteResult} key={strResult.id}>{strResult.val}</li>
             ))}
           </ul>
       </div>
