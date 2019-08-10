@@ -38,7 +38,7 @@ const counter = (props) => {
           <button onClick={props.onStoreResult}>Store Result</button>
           <ul>
             {props.storedResults.map(strResult => (
-            <li onClick={props.onDeleteResult} key={strResult.id}>{strResult.val}</li>
+            <li onClick={() => props.onDeleteResult(strResult.id)} key={strResult.id}>{strResult.val}</li>
             ))}
           </ul>
       </div>
@@ -60,7 +60,7 @@ const mapDispatchToProps = (dispatch) => {
     onAddCounter: () => dispatch({type: 'ADD', val: 5}),
     onSubCounter: () => dispatch({type: 'SUB', val: 5}),
     onStoreResult: () => dispatch({type: 'STORE_RESULT'}),
-    onDeleteResult: () => dispatch({type: 'DELETE_RESULT'}),
+    onDeleteResult: (id) => dispatch({type: 'DELETE_RESULT', resultElID: id}),
   }
 }
 
